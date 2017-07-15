@@ -1,0 +1,52 @@
+"Javascript Journey: this Keyword"
+
+// Section 1
+'this' can be pretty hard to understand when first learning Javascript.
+
+It is best to understand where 'this' is a reference to by looking at where a
+function is called. Not declared. Call-stack vs call-site
+
+Example:
+function firstCallStack() {
+	// call-stack here is 'firstCallStack()'
+
+	console.log( "first" );
+	secondCallStack(); // call-site here is for 'secondCallStack()'
+}
+
+function secondCallStack() {
+	// call-stack here is 'secondCallStack()'
+
+	console.log( "second" );
+	thirdCallStack(); // call-site here is for 'thirdCallStack()'
+}
+
+function thirdCallStack() {
+	// call-stack so far is: firstCallStack -> secondCallStack -> thirdCallStack
+	// the call-site for this function is in 'secondCallStack'
+
+	console.log( "third" );
+}
+
+The call site-is what matters where 'this' binds to.
+
+
+// Section 2
+4 Rules
+There are four kinds of call-sites where 'this' can bind to.
+
+1. Default binding
+The most common call-site is the default binding and to be referred to when
+none of the other rules apply.
+
+Example:
+function bar() {
+	console.log(this.a);
+}
+
+var a = 7;
+
+bar(); // 7
+
+The first thing to note is the global-scope. Here, variable a is in the global
+scope and, therefore, the global object property is a = 7. 
