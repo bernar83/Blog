@@ -49,4 +49,26 @@ var a = 7;
 bar(); // 7
 
 The first thing to note is the global-scope. Here, variable a is in the global
-scope and, therefore, the global object property is a = 7. 
+scope and, therefore, the global object property is a = 7. The second thing to
+note is to look at the call-site, bar(). It's just an ordinary reference for the
+function bar() and this.a would resolve to that call, which points to the
+global object.
+
+2. Implicit binding
+The second rule to remember is if the call site is in the context of an object.
+
+Example:
+function sayName() {
+	console.log(this.name);
+}
+
+var obj = {
+	name: "Adrian",
+	sayName: sayName
+};
+
+obj.sayName(); // "Adrian"
+
+There are a few different things to notice. The first is how sayName() is
+referenced on the obj object and at the call-site sayName() is called as
+a property for obj. 
