@@ -71,4 +71,10 @@ obj.sayName(); // "Adrian"
 
 There are a few different things to notice. The first is how sayName() is
 referenced on the obj object and at the call-site sayName() is called as
-a property for obj. 
+a property for obj. So in a sense the sayName() function is "owned" by obj.
+Therefore, from the implicit binding rule, the this keyword points and binds
+to the obj object.
+
+A frustration that comes with implicit binding is how an object can lose its
+this binding. If an object loses its implicit binding then the default rule is
+used. 
