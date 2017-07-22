@@ -76,5 +76,71 @@ Therefore, from the implicit binding rule, the this keyword points and binds
 to the obj object.
 
 A frustration that comes with implicit binding is how an object can lose its
-this binding. If an object loses its implicit binding then the default rule is
-used. 
+this binding. If a function loses its implicit binding then the default rule is
+used, which then binds to the global object or is undefined.
+
+Example:
+function sayName() {
+	console.log(this.name);
+}
+
+var obj = {
+	name: "Adrian",
+	sayName: sayName
+};
+
+var bar = obj.sayName;
+
+var name = "Gotcha";
+
+bar();
+
+In the example, it may seem bar() should say "Adrian" since it looks like it is
+a reference to obj.sayName but bar() is just another reference to sayName().
+What matters is how the call-site looks like. bar() is just
+an undecorated function call so default binding is in effect.
+
+3. Explicit Binding
+Explicit binding can happen by invoking a function's apply() or call() method.
+Explicit binding allows you to not add the function as a property to the
+selected object. Instead, call() or apply() takes the selected object as its
+parameter and invokes the function on the specified object.
+
+Example:
+function sayName() {
+	console.log(this.name);
+}
+
+var obj = {
+	name: "Adrian"
+};
+
+sayName.call(obj); // "Adrian"
+
+In this example, this in sayName() explicitly binds to obj. Explicit binding
+allows you to force this binding to the object in call/apply's parameter.
+Note that call() and apply() are similar but differ in their additional
+parameters.
+
+Unfortunately, explicit binding alone doesn't rid us of the perils of a function
+"losing" its this binding.
+
+Enter hard binding, a variation of explicit binding which helps us get around
+losing the this binding.
+
+Example:
+function sayName() {
+	console.log(this.name);
+}
+
+var obj = {
+	name: "Adrian"
+};
+
+var sayObjName = function hardBind() {
+	sayName().call(obj);
+}
+
+sayObjName(); // "Adrian"
+setTimeout(sayObjName, 200); // "Adrian"
+sayObjName.call(window); // "Adrian"
