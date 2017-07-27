@@ -144,3 +144,28 @@ var sayObjName = function hardBind() {
 sayObjName(); // "Adrian"
 setTimeout(sayObjName, 200); // "Adrian"
 sayObjName.call(window); // "Adrian"
+
+In the example we explicitly bind sayName() to obj but implemented hard binding.
+In this case, hard binding happens when we invoke sayObjName() and at the same
+time it invokes hardBind() and will now forcibly bind sayName() with obj. So no
+matter what we do with sayObjName() at a later time, sayName() applies
+to obj.
+
+In fact, hard binding is common so there is already a built-in method called
+Function.prototype.bind(). The bind() method is used like before but with
+different syntax:
+
+function sayName() {
+	console.log(this.name);
+}
+
+var obj = {
+	name: "Adrian"
+};
+
+var sayObjName = sayName.bind(obj);
+
+sayObjName(); // "Adrian"
+
+Using the bind() method will now point this to the specified obj placed in its
+parameter.
