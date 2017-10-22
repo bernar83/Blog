@@ -232,3 +232,25 @@ console.log(person2.name); // bill
 const dave = new person1.setName('dave');
 console.log(dave.name); // dave
 console.log(person1.name); // bob
+
+In the example above new binding takes precedence over implicit binding.
+
+Let's now see if new binding takes precedence over explicit binding.
+
+Example:
+function setName(name) {
+	this.name = name;
+}
+
+var person = {};
+
+const name = setName.bind(person);
+name('dave');
+console.log(person.name); // dave
+
+const bob = new name('bob');
+console.log(person.name); // dave
+console.log(bob.name); // bob 
+
+We notice new binding didn't change person.name's value but the new binding created a new object who's name
+property is bob. Although we bound person to name, with `new` bob.name is bob. 
