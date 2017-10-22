@@ -1,0 +1,10 @@
+Quick Q & A #3
+
+How do I name a class or id attribute in a <div> or <span>?
+
+Naming a class or id should represent the content a <div> or <span> wraps 
+around. It should not represent the style of the content as the style could 
+change over time.
+
+For more:
+https://learn.shayhowe.com/html-css/getting-to-know-html/
