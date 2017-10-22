@@ -169,3 +169,66 @@ sayObjName(); // "Adrian"
 
 Using the bind() method will now point this to the specified obj placed in its
 parameter.
+
+4. new Binding
+The last rule for this binding is the new binding. Although the keyword new is familiar to those who 
+already know class oriented languages, it is not exactly the same. Javascript's "constructor" functions 
+are not the same because they do not belong to any classes and are not instantiating a new class.
+When new is placed in front of a function a new object is created, that object is prototype linked, and
+this binding is pointing to that object. 
+
+Example:
+function foo(a) {
+	this.a = a;
+}
+
+var bar = new foo(2);
+console.log(bar.a); // 2
+
+Let's review the four rules and apply them to see which rule will take precedence over the other.
+
+Example:
+function sayOwnColor() {
+	console.log(this.color);
+}
+
+var red = {
+	color: "red",
+	sayOwnColor: sayOwnColor
+};
+
+var blue = {
+	color: "blue",
+	sayOwnColor: sayOwnColor
+};
+
+red.sayOwnColor(); // red
+blue.sayOwnColor(); // blue 
+
+red.sayOwnColor.call(blue); // blue
+blue.sayOwnColor.call(red); // red
+
+In the case above, explicit binding is precedent over implicit binding.
+
+Now let's see `new` binding's precedence in what we have so far.
+
+Example:
+function setName(name) {
+	this.name = name;
+}
+
+const person1 = {
+	setName: setName
+};
+
+const person2 = {};
+
+person1.setName('bob');
+console.log(person1.name); // bob
+
+person1.setName.call(person2, 'bill');
+console.log(person2.name); // bill
+
+const dave = new person1.setName('dave');
+console.log(dave.name); // dave
+console.log(person1.name); // bob
