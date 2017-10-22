@@ -254,3 +254,21 @@ console.log(bob.name); // bob
 
 We notice new binding didn't change person.name's value but the new binding created a new object who's name
 property is bob. Although we bound person to name, with `new` bob.name is bob. 
+
+In summary, there are four questions to ask when figuring out the value of `this`.
+
+1. Is the function called with `new` binding? If yes, `this` value is the newly created object.
+
+var bar = new foo();
+
+2. Is the function called with `call` or `apply` (explicit binding) or hard bound with `bind`? If yes, `this`
+value is the explicitly called object.
+
+var bar = foo.call(obj);
+
+3. Is the function called in the context of an object or is "owned" by one? `this` value is the context 
+object.
+
+var bar = obj.foo();
+
+4. If all else fails then default binding is the answer and `this` is the global object.
