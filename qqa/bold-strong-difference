@@ -1,0 +1,10 @@
+Quick Q & A #4
+
+What is the difference between <b> and <strong> elements?
+
+They both have different semantic meanings. A person would use <strong>
+when the text it wraps around is important and needs attention. Using <b>
+is used to change a style to a text but doesn't represent importance.
+
+For more:
+http://html5doctor.com/i-b-em-strong-element/
