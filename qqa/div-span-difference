@@ -1,0 +1,11 @@
+Quick Q & A #2
+
+What's the difference between a <div> and a <span>?
+
+A <div> is a block level element that defines large groupings of content. A 
+<span> is an inline level element that defines smaller groupings of text 
+within a block level element. 
+
+For more:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
