@@ -3,7 +3,7 @@ Quick Q & A #1
 Why use CSS resets?
 
 You should use CSS resets because every browser has their own style for 
-different html elements. Google Chrome may render paragraphs, headings, etc. 
+different HTML elements. Google Chrome may render paragraphs, headings, etc. 
 differently than Internet Explorer or Opera. In order to make sure your code is 
 compatible across different browsers then CSS resets are used. CSS resets 
 generally remove additional margins, paddings, or styles. Using them ensures
