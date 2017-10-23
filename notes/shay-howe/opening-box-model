@@ -1,0 +1,11 @@
+-Set width and height for block or inline-block elements
+-Inline elements don't accept width and height properties
+-Margins used for space around borders of elements
+-Inline elements don't accept top and bottom margins 
+-Padding provides spacing inside of an element 
+-Padding properties work work vertically on inline elements
+-Vertical padding may bleed into lines above and below an element
+-Setting unique properties for margins/paddings the shorthand version starts top to left clockwise
+-To set value for top/bottom and left/right use two values, first for top/bottom and second for left/right
+-Longhand properties are single properties that accept one value 
+-Borders can be set by shorthand (border: 6px solid #949599) or longhand (border-width, border-style, border-color)
