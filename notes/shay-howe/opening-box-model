@@ -16,3 +16,12 @@
 -Border radius: A single value will round all four corners of an element equally; two values 
     will round the top-left/bottom-right and top-right/bottom-left corners in that order; 
     four values will round the top-left, top-right, bottom-right, and bottom-left corners in that order.
+-box-sizing property can change how the box model works. The three values are content-box, padding-box, and border-box
+    *content-box: default for keeping the additive design (vendor prefixes are used for older browsers. 
+    Support different properties and values)
+    *padding-box: deprecated in CSS3
+    *border-box: border and padding are added into calculations with width. If an element has a width of 400 pixels, 
+    a padding of 20 pixels around every side, and a border of 10 pixels around every side, the actual width will remain 400 pixels.
+    If we add a margin, those values will need to be added to calculate the full box size. Generally speaking, the best box-sizing 
+    value to use is border-box. The only drawback to using the box-sizing property is that as part of the CSS3 specification, 
+    it isn’t supported in every browser; it especially lacks support in older browsers.
