@@ -12,3 +12,12 @@ When floating an element, it is also important to recognize that an element is r
 flow of a page, and that may change an element’s default display value. The float property relies on 
 an element having a display value of block, and may alter an element’s default display value if it is 
 not already displayed as a block-level element.
+-Floats: The left value will clear left floats, while the right value will clear right floats. The both value, however, will clear both left and right floats and is often the most ideal value. It is important that this clear be applied to an element appearing after the floated elements, not before, to return the page to its normal flow.
+-Rather than clearing floats, another option is to contain the floats. The outcomes of containing floats versus those of clearing them are nearly the same; however, containing floats does help to ensure that all of our styles will be rendered properly.
+-To contain floats, the floated elements must reside within a parent element. The parent element will act as a container, leaving the flow of the document completely normal outside of it.
+-(*zoom: 1;) Gets older browsers to play nicely with floats.
+Ex: 
+  group {
+  clear: both;
+  *zoom: 1;
+}
