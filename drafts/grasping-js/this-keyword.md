@@ -161,7 +161,7 @@ Using the bind() method will now point `this` to the specified `obj` placed in i
 
 ### 4. `new` Binding
 
-The last rule for this binding is the `new` binding. Although the keyword `new` is familiar to those who already know class oriented languages, it is not exactly the same. Javascript's "constructor" functions are not the same because they do not belong to any classes and are not instantiating a new class. Let's look at an example.
+The last rule for `this` binding is the `new` binding. Although the keyword `new` is familiar to those who already know class oriented languages, it is not exactly the same. Javascript's "constructor" functions are not the same because they do not belong to any classes and are not instantiating a new class. Let's look at an example.
 
 ```js
 function foo(a) {
@@ -184,20 +184,20 @@ function sayOwnColor() {
 }
 
 var red = {
-	color: "red",
+	color: 'red',
 	sayOwnColor: sayOwnColor
 };
 
 var blue = {
-	color: "blue",
+	color: 'blue',
 	sayOwnColor: sayOwnColor
 };
 
-red.sayOwnColor(); // red
-blue.sayOwnColor(); // blue 
+red.sayOwnColor(); // "red"
+blue.sayOwnColor(); // "blue" 
 
-red.sayOwnColor.call(blue); // blue
-blue.sayOwnColor.call(red); // red
+red.sayOwnColor.call(blue); // "blue"
+blue.sayOwnColor.call(red); // "red"
 ```
 
 In the case above, explicit binding is precedent over implicit binding.
@@ -216,14 +216,14 @@ const person1 = {
 const person2 = {};
 
 person1.setName('bob');
-console.log(person1.name); // bob
+console.log(person1.name); // "bob"
 
 person1.setName.call(person2, 'bill');
-console.log(person2.name); // bill
+console.log(person2.name); // "bill"
 
 const dave = new person1.setName('dave');
-console.log(dave.name); // dave
-console.log(person1.name); // bob
+console.log(dave.name); // "dave"
+console.log(person1.name); // "bob"
 ```
 
 In the example above `new` binding takes precedence over implicit binding.
@@ -239,11 +239,11 @@ var person = {};
 
 const name = setName.bind(person);
 name('dave');
-console.log(person.name); // dave
+console.log(person.name); // "dave"
 
 const bob = new name('bob');
-console.log(person.name); // dave
-console.log(bob.name); // bob 
+console.log(person.name); // "dave"
+console.log(bob.name); // "bob" 
 ```
 
 We notice `new` binding didn't change `person.name`'s value but the `new` binding created a new object who's name property is "bob". Although we bound `person` to `name` with `new`, `bob.name` is "bob". 
