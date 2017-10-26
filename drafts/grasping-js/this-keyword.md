@@ -272,4 +272,6 @@ var bar = obj.foo();
 
 4. If all else fails then default binding is the answer and `this` is the global object.
 
+Those are the 4 rules that help illuminate what `this` value is.
+
 I hope reading this article helps in understanding `this` a little more. If you found it helpful don't forget to leave a few claps. 
