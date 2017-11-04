@@ -4,6 +4,6 @@ We'll look at class orientation as a design pattern. Afterwards, we'll examine t
 classes like instantiation, inheritance, and polymorphism.
 
 We'll also look at how these class concepts don't work that well with object mechanisms in Javascript.
-Although the concepts don't work well, there have been many patterns to overcome those challenges.
+Although the concepts don't work well, there have been many patterns made to overcome those challenges.
 
 ~Class Theory
