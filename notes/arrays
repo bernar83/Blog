@@ -44,4 +44,44 @@ function main() {
 }
 
 Walkthrough:
-Let's first look at what is given in the main function. The first line in the function declares a variable n which reads the first line of input and parses any integers. In this case n would be 4. In the second line of main, arr reads the second line of input then splits the string into an array of strings. Afterwards each element in arr is coerced into a number so the elements in arr are [2, 3, 4, 1]. 
+Let's first look at what is given in the main function. The first line in the function declares a variable 
+n which reads the first line of input and parses any integers. In this case n would be 4. In the second 
+line of main, arr reads the second line of input then splits the string into an array of strings. 
+Afterwards each element in arr is coerced into a number so the elements in arr are [2, 3, 4, 1]. 
+
+My first step would be to reverse the elements in the array. In order to reverse elements in an array we can use the reverse function. 
+
+Example:
+let arr = [1,2,3,4];
+let reverseArr = arr.reverse();
+console.log(reverseArr); // [4,3,2,1]
+
+Afterwards our next step would somehow join the elements of the array into a string. For this, we can use Javascript's join function. 
+Doing so would allow us to fulfill the expected output for the problem. Let's look at an example.
+
+Example:
+let arr = [1,2,3,4];
+let joinArr = arr.join(' ');
+console.log(joinArr); // 1 2 3 4 
+
+In the above code, the space in the join's parameter is used as a separator for each element. If instead of ' ' we could use '-' and 
+then each of our elements would be separated with '-'. 
+
+Like so:
+1-2-3-4
+
+Now that we have our pieces together let's look at the final code for the problem.
+
+The Answer:
+function main() {
+    var n = parseInt(readLine());
+    arr = readLine().split(' ');
+    arr = arr.map(Number);
+    
+    var arrReverse = arr.reverse().join(' ');
+    console.log(arrReverse);
+}
+
+The code chains together both functions for less verbosity. 
+
+There we have it. We have implemented reversing the contents in an array.
